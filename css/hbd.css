@@ -1,0 +1,440 @@
+/* Genel stiller */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 107, 157, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(116, 185, 255, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 234, 167, 0.2) 0%,
+      transparent 50%
+    ),
+    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  animation: backgroundShimmer 8s ease-in-out infinite;
+}
+
+@keyframes backgroundShimmer {
+  0%,
+  100% {
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 107, 157, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(116, 185, 255, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 234, 167, 0.2) 0%,
+        transparent 50%
+      ),
+      linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+  50% {
+    background: radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 107, 157, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(116, 185, 255, 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 60% 60%,
+        rgba(255, 234, 167, 0.3) 0%,
+        transparent 50%
+      ),
+      linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%);
+  }
+}
+
+.birthday-card {
+  text-align: center;
+  position: relative;
+}
+
+/* Pasta konteyner */
+.cake {
+  position: relative;
+  margin-bottom: 30px;
+  height: 250px;
+  width: 350px;
+}
+
+/* Pasta katmanları */
+.cake-layer {
+  width: 200px;
+  height: 60px;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-500px);
+  animation-fill-mode: forwards;
+}
+
+.bottom-layer {
+  background: linear-gradient(45deg, #ff6b9d 0%, #ff8fab 50%, #ffb3c6 100%);
+  animation: dropDown 1s ease-out 0.5s forwards;
+  width: 280px;
+  height: 90px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-500px);
+  border: 3px solid #ff4757;
+  border-radius: 25px 25px 15px 15px;
+}
+
+.bottom-layer::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff4757 0px,
+    #ff4757 15px,
+    transparent 15px,
+    transparent 25px
+  );
+  border-radius: 2px;
+}
+
+.bottom-layer::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff6b9d 0px,
+    #ff6b9d 12px,
+    transparent 12px,
+    transparent 20px
+  );
+  border-radius: 2px;
+}
+
+.middle-layer {
+  background: linear-gradient(45deg, #74b9ff 0%, #a29bfe 50%, #fd79a8 100%);
+  animation: dropDown 1s ease-out 1.5s forwards;
+  width: 240px;
+  height: 75px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-500px);
+  border: 3px solid #6c5ce7;
+  border-radius: 20px 20px 12px 12px;
+}
+
+.middle-layer::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 25px;
+  right: 25px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #6c5ce7 0px,
+    #6c5ce7 10px,
+    transparent 10px,
+    transparent 18px
+  );
+  border-radius: 2px;
+}
+
+.middle-layer::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 35px;
+  right: 35px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #74b9ff 0px,
+    #74b9ff 8px,
+    transparent 8px,
+    transparent 15px
+  );
+  border-radius: 2px;
+}
+
+.top-layer {
+  background: linear-gradient(45deg, #ffeaa7 0%, #fab1a0 50%, #e17055 100%);
+  animation: dropDown 1s ease-out 2.5s forwards;
+  width: 200px;
+  height: 65px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-500px);
+  border: 3px solid #e17055;
+  border-radius: 18px 18px 10px 10px;
+}
+
+.top-layer::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #e17055 0px,
+    #e17055 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  border-radius: 2px;
+}
+
+.top-layer::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffeaa7 0px,
+    #ffeaa7 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  border-radius: 2px;
+}
+
+/* Mum */
+.candle {
+  width: 12px;
+  height: 50px;
+  background: linear-gradient(to bottom, #ff7675 0%, #fd79a8 50%, #e84393 100%);
+  border-radius: 6px;
+  margin: 0 auto;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-500px);
+  animation: candleDrop 0.8s ease-out 3.5s forwards;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #e84393;
+}
+
+.candle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  right: 2px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff7675, #fd79a8);
+  border-radius: 1px;
+}
+
+.candle::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 2px;
+  right: 2px;
+  height: 1px;
+  background: linear-gradient(90deg, #e84393, #fd79a8);
+  border-radius: 1px;
+}
+
+/* Alev */
+.flame {
+  width: 16px;
+  height: 25px;
+  background: radial-gradient(
+    ellipse,
+    #fff59d 0%,
+    #ffeb3b 20%,
+    #ff9800 60%,
+    #f44336 90%,
+    #d32f2f 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: flameAppear 0.5s ease-out 4.3s forwards,
+    flameFlicker 1s ease-in-out 4.8s infinite;
+  box-shadow: 0 0 20px #ff9800, 0 0 40px #ff5722;
+}
+
+.flame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 12px;
+  height: 20px;
+  background: radial-gradient(
+    ellipse,
+    #fff9c4 0%,
+    #ffeb3b 30%,
+    #ff9800 70%,
+    transparent 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.8;
+}
+
+.flame::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 8px;
+  height: 15px;
+  background: radial-gradient(
+    ellipse,
+    #fffde7 0%,
+    #ffeb3b 50%,
+    transparent 100%
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.9;
+}
+
+/* Yazılar */
+.birthday-text {
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: textAppear 1s ease-out 5s forwards;
+  font-weight: bold;
+}
+
+.name-text {
+  font-size: 1.5em;
+  color: #ffeb3b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: textAppear 1s ease-out 5.5s forwards;
+  font-style: italic;
+}
+
+/* Animasyonlar */
+@keyframes dropDown {
+  0% {
+    transform: translateX(-50%) translateY(-500px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes candleDrop {
+  0% {
+    transform: translateX(-50%) translateY(-500px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes flameAppear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes flameFlicker {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1) rotate(2deg);
+  }
+}
+
+@keyframes textAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .cake-layer {
+    width: 150px;
+  }
+
+  .bottom-layer {
+    width: 200px;
+    height: 60px;
+  }
+
+  .middle-layer {
+    width: 170px;
+    height: 50px;
+  }
+
+  .top-layer {
+    width: 140px;
+    height: 40px;
+  }
+
+  .birthday-text {
+    font-size: 2em;
+  }
+
+  .name-text {
+    font-size: 1.2em;
+  }
+}
